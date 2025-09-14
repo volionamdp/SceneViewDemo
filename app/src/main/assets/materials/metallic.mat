@@ -1,0 +1,32 @@
+material {
+    name : Gold,
+    shadingModel : lit,
+    parameters : [
+        {
+            type : float4,
+            name : baseColor   // Cho phép set màu từ code
+        },
+        {
+            type : float,
+            name : roughness   // Cho phép thay đổi độ nhám
+        }
+    ]
+}
+
+fragment {
+    void material(inout MaterialInputs material) {
+        prepareMaterial(material);
+
+        // Màu vàng mặc định (sRGB)
+        material.baseColor = materialParams.baseColor;
+
+        // Làm kim loại
+        material.metallic = 1.0;
+
+        // Roughness điều chỉnh bóng hay mờ
+        material.roughness = materialParams.roughness;
+
+        // Độ phản xạ Fresnel (0–1), 1.0 giúp sáng bóng hơn
+        material.reflectance = 1.0;
+    }
+}

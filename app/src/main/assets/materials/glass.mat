@@ -1,0 +1,29 @@
+material {
+    name : Glass,
+    shadingModel : lit,
+    blending : transparent,
+    depthWrite : false,
+    culling : none,
+    parameters : [
+        {
+            type : float4,
+            name : baseColor   // Cho phép set màu từ code
+        }
+    ]
+}
+
+fragment {
+    void material(inout MaterialInputs material) {
+        prepareMaterial(material);
+
+        // Gán màu từ parameter
+        material.baseColor = materialParams.baseColor;
+
+        // Làm kính bóng
+        material.roughness = 0.05;
+        material.metallic = 0.0;
+
+        // Điều chỉnh phản xạ (0.0 - 1.0), giá trị cao tạo cảm giác bóng
+        material.reflectance = 1.0;
+    }
+}
