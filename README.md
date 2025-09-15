@@ -5,7 +5,17 @@
 
 ## Các bước thực hiện chính
 
-### 1. Thêm `SceneView` vào Layout
+### 1. Thêm `SceneView` vào Project
+
+Trong `build.gradle (app)` thêm:
+
+``` gradle
+dependencies {
+    // SceneView cơ bản (Filament 3D)
+    implementation("io.github.sceneview:sceneview:2.3.0")
+
+}
+```
 
 `SceneView` là một `View` của Android và có thể được thêm vào file layout XML của bạn.
 
