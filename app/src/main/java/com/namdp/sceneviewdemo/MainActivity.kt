@@ -74,6 +74,7 @@ class MainActivity : AppCompatActivity() {
             center = Position(0.3001f, 0f, 0f),
         ).apply {
             isShadowCaster = false
+            isShadowReceiver = false
         }
         setMaterialGlass(cubeNote)
         parentNode.addChildNode(cubeNote)
